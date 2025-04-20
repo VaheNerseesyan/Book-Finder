@@ -1,0 +1,85 @@
+.modalOverlay {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(610px);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1000;
+  animation: fadeIn 0.3s forwards;
+  backdrop-filter: blur(2px);
+}
+
+.modalContent {
+  background: rgb(160, 159, 159);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  max-width: 200px;
+  height: auto;
+  transform: translateY(0);
+  animation: toastIn 0.4s ease-out;
+}
+
+.modalIcon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  animation: pulse 0.5s ease-in-out;
+}
+
+.modalMessage {
+  font-size: 1rem;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+@keyframes toastIn {
+  0% {
+      transform: translateY(-20px) scale(0.95);
+      opacity: 0;
+  }
+
+  100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+  }
+}
+
+@keyframes toastOut {
+  0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+  }
+
+  100% {
+      transform: translateY(-20px) scale(0.95);
+      opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+
+  50% {
+      transform: scale(1.1);
+  }
+
+  100% {
+      transform: scale(1);
+  }
+}

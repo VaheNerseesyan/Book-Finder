@@ -1,0 +1,148 @@
+.bookCard {
+    border: 1px solid var(--card-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    /* z-index: 1;  */
+}
+
+/* .bookCard:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    
+} */
+
+.dark .bookCard:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.bookCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5;
+}
+
+.imagePlaceholder {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    color: #666;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.dark .imagePlaceholder {
+    background-color: #2a2a2a;
+    color: #aaa;
+}
+
+.dark .bookCard img {
+    background-color: #2a2a2a;
+}
+
+.bookCard h6 {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.bookCard h6:first-of-type {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.bookCard h6:nth-of-type(2) {
+    display: inline-block;
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.bookCard h6:last-of-type {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.dark .bookCard h6:last-of-type {
+    color: #a1a1a1;
+}
+
+.bookCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bookCard:hover::before {
+    opacity: 1;
+}
+
+.bookFavorite {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    z-index: 2;
+}
+
+.bookFavorite img {
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none !important;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hide filled star by default */
+.bookFavorite img.filled {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Show filled star when favorite */
+.bookFavorite.favorite img.filled {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hide empty star when favorite */
+.bookFavorite.favorite img:not(.filled) {
+    opacity: 0;
+    visibility: hidden;
+}
+
